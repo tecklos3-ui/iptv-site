@@ -1,11 +1,10 @@
-/* الألوان والخطوط الأساسية */
 :root {
-    --main-color: #e50914; /* أحمر احترافي */
-    --accent-green: #25d366; /* أخضر واتساب */
-    --bg-dark: #0f0f0f;
-    --card-bg: #1a1a1a;
+    --main-red: #e50914;
+    --wa-green: #25d366;
+    --dark-bg: #0a0a0a;
+    --card-bg: rgba(30, 30, 30, 0.6);
     --text-white: #ffffff;
-    --text-gray: #aaaaaa;
+    --text-light: #d1d1d1;
 }
 
 * {
@@ -16,138 +15,131 @@
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--dark-bg);
     color: var(--text-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 .container {
-    max-width: 900px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* --- الهيدر (Hero Section) --- */
+/* الهيدر */
 .hero {
-    height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.6), var(--bg-dark)), 
-                url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=1470') center/cover;
+    height: 55vh;
+    background: linear-gradient(rgba(10,10,10,0.8), var(--dark-bg)), 
+                url('https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=1470') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    position: relative;
 }
-
-.hero-content { position: relative; z-index: 2; }
 
 .badge {
-    background: var(--main-color);
-    padding: 5px 15px;
-    border-radius: 5px;
-    font-size: 0.9rem;
+    background: var(--main-red);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 15px;
     display: inline-block;
-    margin-bottom: 20px;
 }
 
-h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 15px; }
-.highlight { color: var(--main-color); }
+h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; letter-spacing: -1px; }
+.highlight { color: var(--main-red); }
+.hero-desc { font-weight: 300; color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
 
-/* --- زر واتساب العائم --- */
+/* واتساب */
 .whatsapp-float {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--accent-green);
+    bottom: 25px;
+    right: 25px;
+    background: var(--wa-green);
     color: white;
-    padding: 12px 25px;
+    padding: 12px 22px;
     border-radius: 50px;
     text-decoration: none;
     z-index: 1000;
     display: flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
-    transition: 0.3s ease;
+    gap: 8px;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2);
+    transition: 0.3s;
 }
 
-.whatsapp-float:hover { transform: scale(1.05); background-color: #1ebd5b; }
+.whatsapp-float:hover { transform: translateY(-5px); }
 
-/* --- قائمة التطبيقات (أسفل بعضها) --- */
-.section-title {
-    text-align: center;
-    margin: 40px 0;
-    font-size: 1.8rem;
-    color: var(--text-gray);
-}
+/* قائمة التطبيقات */
+.section-title { text-align: center; margin: 40px 0; font-size: 1.4rem; color: #555; }
 
-.apps-list {
-    display: flex;
-    flex-direction: column; /* لضمان ظهورهم أسفل بعضهم البعض */
-    gap: 25px;
-    padding-bottom: 50px;
-}
+.apps-list { display: flex; flex-direction: column; gap: 30px; padding-bottom: 60px; }
 
 .app-card-horizontal {
     background: var(--card-bg);
-    border: 1px solid #333;
-    padding: 30px;
-    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 35px;
+    border-radius: 28px;
     display: flex;
-    flex-direction: column; /* ترتيب المحتوى داخلياً بشكل عمودي */
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: 0.3s;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(30px);
 }
+
+.app-card-horizontal.visible { opacity: 1; transform: translateY(0); }
 
 .app-card-horizontal:hover {
-    border-color: var(--main-color);
-    box-shadow: 0 5px 25px rgba(229, 9, 20, 0.1);
+    border-color: var(--main-red);
+    background: rgba(229, 9, 20, 0.03);
 }
 
-/* تنسيق اللوجو ليكون متناسقاً */
-.app-logo-img {
-    width: 120px; /* حجم اللوجو */
-    height: 120px;
-    object-fit: contain; /* للحفاظ على أبعاد اللوجو دون تشويه */
+/* تنسيق اللوجو المتناسق */
+.logo-container {
+    width: 110px;
+    height: 110px;
     background: #000;
-    padding: 10px;
-    border-radius: 20px;
+    border-radius: 22px;
+    padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.app-info h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--main-color); }
-.app-info p { color: var(--text-gray); margin-bottom: 25px; font-size: 1.1rem; }
+.app-logo-img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-/* زر التحميل */
+.app-info h3 { font-size: 1.7rem; margin-bottom: 8px; color: var(--text-white); }
+.app-info p { font-weight: 300; color: var(--text-light); margin-bottom: 25px; font-size: 1rem; }
+
+/* زر التحميل الخفيف */
 .download-btn {
-    background: var(--main-color);
+    background: var(--main-red);
     color: white;
-    padding: 12px 40px;
-    border-radius: 50px;
+    padding: 12px 45px;
+    border-radius: 12px;
     text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
+    font-weight: 700;
+    font-size: 0.95rem;
     transition: 0.3s;
-    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.download-btn:hover { background: #b20710; box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4); }
+.download-btn:hover { background: #b20710; box-shadow: 0 0 20px rgba(229, 9, 20, 0.4); }
 
-/* التذييل */
-footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid #222;
-    color: #555;
-    font-size: 0.9rem;
-}
+footer { text-align: center; padding: 40px; color: #333; font-size: 0.8rem; border-top: 1px solid #111; }
 
-/* متجاوب مع الجوال */
+/* للموبايل */
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    .whatsapp-float span { display: none; } /* يظهر فقط أيقونة في الجوال */
-    .app-logo-img { width: 100px; height: 100px; }
+    h1 { font-size: 1.8rem; }
+    .whatsapp-float span { display: none; }
+    .app-card-horizontal { padding: 25px; }
 }
