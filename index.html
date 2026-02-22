@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global IPTV - عالم الترفيه بين يديك</title>
+    <title>ZAIN TV & BLUE4K - عالم الترفيه</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -18,43 +18,65 @@
     <header class="hero">
         <div class="overlay"></div>
         <div class="container hero-content">
-            <div class="badge">خدمة IPTV المتميزة</div>
-            <h1>موقع مختص لتحميل تطبيقات <span class="highlight">ZAINTV & BLUE4K</span></h1>
-            <p>نحن نوفر لك أفضل السيرفرات العالمية بجودة 4K لتستمتع بمبارياتك وأفلامك المفضلة في أي وقت ومن أي مكان.</p>
+            <div class="badge">IPTV Premium Service</div>
+            <h1>تحميل تطبيقات <span class="highlight">ZAINTV & BLUE4K</span></h1>
+            <p class="hero-desc">استمتع بأقوى السيرفرات العالمية بجودة 4K. نحن نوفر لك تجربة مشاهدة فريدة بدون تقطيع أينما كنت.</p>
         </div>
     </header>
 
     <main class="container">
         <section class="apps-section">
-    <h2 class="section-title">تطبيقات التشغيل</h2>
-    
-    <div class="apps-list">
-        
-        <div class="app-card-horizontal">
-            <img src="logo.png" alt="ZAIN TV Logo" class="app-logo-img">
-            <div class="app-info">
-                <h3>ZAIN TV</h3>
-                <p>الباقة المتكاملة للقنوات العربية والعالمية بجودة عالية.</p>
-                <a href="zain-tv.apk" class="download-btn"><i class="fas fa-download"></i> تحميل الآن</a>
-            </div>
-        </div>
+            <h2 class="section-title">اختر تطبيقك المفضل</h2>
+            
+            <div class="apps-list">
+                
+                <div class="app-card-horizontal">
+                    <div class="logo-container">
+                        <img src="logo.png" alt="ZAIN TV Logo" class="app-logo-img">
+                    </div>
+                    <div class="app-info">
+                        <h3>ZAIN TV</h3>
+                        <p>بوابتك لمشاهدة كافة القنوات والبطولات الرياضية بجودة فائقة.</p>
+                        <a href="zain-tv.apk" class="download-btn">
+                            <i class="fas fa-cloud-download-alt"></i> تحميل APK
+                        </a>
+                    </div>
+                </div>
 
-        <div class="app-card-horizontal">
-            <img src="logo.png" alt="ZAIN TV Logo" class="app-logo-img">
-            <div class="app-info">
-                <h3>ZAIN TV (نسخة الجوال)</h3>
-                <p>استمتع بالمشاهدة على هاتفك أينما كنت.</p>
-                <a href="zain-mobile.apk" class="download-btn"><i class="fas fa-download"></i> تحميل الآن</a>
-            </div>
-        </div>
+                <div class="app-card-horizontal">
+                    <div class="logo-container">
+                        <img src="logo.png" alt="ZAIN TV Logo" class="app-logo-img">
+                    </div>
+                    <div class="app-info">
+                        <h3>BLUE4K APP</h3>
+                        <p>النسخة الخفيفة والمتطورة، مصممة خصيصاً للهواتف وأجهزة التي في بوكس.</p>
+                        <a href="blue4k.apk" class="download-btn">
+                            <i class="fas fa-cloud-download-alt"></i> تحميل مباشر
+                        </a>
+                    </div>
+                </div>
 
-    </div>
-</section>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>© 2026 Global IPTV - جميع الحقوق محفوظة</p>
+        <p>© 2026 ZAIN TV & BLUE4K - جميع الحقوق محفوظة</p>
     </footer>
 
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.app-card-horizontal').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
