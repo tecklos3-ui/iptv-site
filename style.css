@@ -1,102 +1,153 @@
+/* الألوان والخطوط الأساسية */
 :root {
-    --primary-color: #e50914; /* أحمر نيتفليكس */
-    --accent-color: #25d366;  /* أخضر واتساب */
+    --main-color: #e50914; /* أحمر احترافي */
+    --accent-green: #25d366; /* أخضر واتساب */
     --bg-dark: #0f0f0f;
     --card-bg: #1a1a1a;
-    --text-light: #ffffff;
+    --text-white: #ffffff;
+    --text-gray: #aaaaaa;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
 
-body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-/* قسم الهيرو Hero */
+/* --- الهيدر (Hero Section) --- */
 .hero {
-    height: 70vh;
-    background: url('https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=1350&q=80') center/cover;
-    position: relative;
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.6), var(--bg-dark)), 
+                url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=1470') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-.overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(15,15,15,0.5), #0f0f0f);
+    position: relative;
 }
 
 .hero-content { position: relative; z-index: 2; }
 
-.badge { background: var(--primary-color); padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; display: inline-block; margin-bottom: 20px; }
+.badge {
+    background: var(--main-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 20px;
+}
 
-h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 15px; }
+h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 15px; }
+.highlight { color: var(--main-color); }
 
-.highlight { color: var(--primary-color); }
-
-/* زر واتساب العائم */
+/* --- زر واتساب العائم --- */
 .whatsapp-float {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: var(--accent-color);
+    background-color: var(--accent-green);
     color: white;
-    padding: 15px 25px;
+    padding: 12px 25px;
     border-radius: 50px;
+    text-decoration: none;
+    z-index: 1000;
     display: flex;
     align-items: center;
     gap: 10px;
-    text-decoration: none;
-    z-index: 1000;
-    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    transition: 0.3s ease;
 }
 
-.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-float:hover { transform: scale(1.05); background-color: #1ebd5b; }
 
-.whatsapp-float i { font-size: 24px; }
+/* --- قائمة التطبيقات (أسفل بعضها) --- */
+.section-title {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 1.8rem;
+    color: var(--text-gray);
+}
 
-/* كروت التطبيقات */
-.section-title { text-align: center; margin: 50px 0; font-size: 2rem; }
+.apps-list {
+    display: flex;
+    flex-direction: column; /* لضمان ظهورهم أسفل بعضهم البعض */
+    gap: 25px;
+    padding-bottom: 50px;
+}
 
-.apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-.app-card {
+.app-card-horizontal {
     background: var(--card-bg);
     border: 1px solid #333;
-    padding: 40px;
+    padding: 30px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column; /* ترتيب المحتوى داخلياً بشكل عمودي */
+    align-items: center;
     text-align: center;
-    position: relative;
     transition: 0.3s;
 }
 
-.app-card:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+.app-card-horizontal:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 5px 25px rgba(229, 9, 20, 0.1);
+}
 
-.app-badge { position: absolute; top: 15px; left: 15px; background: #ffd700; color: #000; font-size: 0.7rem; padding: 2px 10px; font-weight: bold; border-radius: 3px; }
+/* تنسيق اللوجو ليكون متناسقاً */
+.app-logo-img {
+    width: 120px; /* حجم اللوجو */
+    height: 120px;
+    object-fit: contain; /* للحفاظ على أبعاد اللوجو دون تشويه */
+    background: #000;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #222;
+}
 
-.app-icon-main { font-size: 60px; color: var(--primary-color); margin-bottom: 20px; }
+.app-info h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--main-color); }
+.app-info p { color: var(--text-gray); margin-bottom: 25px; font-size: 1.1rem; }
 
+/* زر التحميل */
 .download-btn {
-    display: block;
-    border: 2px solid var(--primary-color);
+    background: var(--main-color);
     color: white;
-    padding: 12px;
-    margin-top: 25px;
+    padding: 12px 40px;
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 10px;
+    font-weight: bold;
+    display: inline-block;
     transition: 0.3s;
+    border: none;
 }
 
-.download-btn:hover { background: var(--primary-color); }
+.download-btn:hover { background: #b20710; box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4); }
 
-footer { text-align: center; padding: 60px 0; border-top: 1px solid #222; margin-top: 50px; color: #666; }
+/* التذييل */
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid #222;
+    color: #555;
+    font-size: 0.9rem;
+}
 
-/* استجابة الموبايل */
+/* متجاوب مع الجوال */
 @media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-    .whatsapp-float span { display: none; } /* إخفاء النص في الموبايل وترك الأيقونة */
+    h1 { font-size: 2rem; }
+    .whatsapp-float span { display: none; } /* يظهر فقط أيقونة في الجوال */
+    .app-logo-img { width: 100px; height: 100px; }
 }
